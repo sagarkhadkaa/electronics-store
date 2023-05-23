@@ -1,0 +1,42 @@
+.box {
+  position: relative;
+}
+.box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 32px;
+  border: 2px solid transparent;
+  background: linear-gradient(
+    90deg,
+    #920aa9 2%,
+    #e019cc 20%,
+    #ff81e3 48%,
+    #fc75d6 52%,
+    #df55f6 60%,
+    #e822ec 71%,
+    #e80f91 75%,
+    #ee19d8 81.25%,
+    #fe3873 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.gradient_text {
+  background: linear-gradient(
+    90deg,
+    #920aa9 2%,
+    #e019cc 20%,
+    #ff81e3 48%,
+    #fc75d6 52%,
+    #df55f6 60%,
+    #e822ec 71%,
+    #e80f91 75%,
+    #ee19d8 81.25%,
+    #fe3873 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
