@@ -2,10 +2,57 @@ import Image from 'next/image';
 import NavBar from './components/NavBar';
 import styles from './styles/MyComponent.module.css';
 import electronic_circuit_bord from '../public/electronic_circuit_bord.png';
+import ProductSlider from './components/ProductSlider';
+
+const products = [
+  {
+    id: 1,
+    name: 'Laptop 1',
+    image: '/alienware1.png',
+    price: 999,
+    rating: 4.5,
+  },
+  {
+    id: 2,
+    name: 'Laptop 2',
+    image: '/alienware1.png',
+    price: 1499,
+    rating: 4.8,
+  },
+  {
+    id: 3,
+    name: 'Laptop 3',
+    image: '/alienware1.png',
+    price: 9994,
+    rating: 4.5,
+  },
+  {
+    id: 4,
+    name: 'Laptop 4',
+    image: '/alienware1.png',
+    price: 14991,
+    rating: 4.8,
+  },
+  {
+    id: 5,
+    name: 'Laptop 5',
+    image: '/alienware1.png',
+    price: 9996,
+    rating: 4.5,
+  },
+  {
+    id: 6,
+    name: 'Laptop 6',
+    image: '/alienware1.png',
+    price: 1499,
+    rating: 4.8,
+  },
+  // Add more products as needed
+];
 
 export default function Home() {
   return (
-    <div className='flex flex-col items-center '>
+    <div className='bg-deepPurple flex flex-col items-center '>
       <NavBar />
       <div className='relative flex items-center justify-center bg-black'>
         <Image
@@ -60,6 +107,9 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </div>
+      <div className='container mx-auto mt-6'>
+        <ProductSlider products={products} />
       </div>
     </div>
   );
