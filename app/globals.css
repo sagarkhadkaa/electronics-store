@@ -8,3 +8,7 @@
   font-family: 'Routhem';
   src: url('../public/fonts/Routhem.otf');
 }
+@font-face {
+  font-family: 'HAMMERHEAD';
+  src: url('../public/fonts/HAMMERHEAD.ttf');
+}
