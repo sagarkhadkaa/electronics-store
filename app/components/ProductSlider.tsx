@@ -4,15 +4,19 @@ import React, { useEffect, useState } from 'react';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
+import styles from '../styles/MyComponent.module.css';
+import StarRating from './StarRating';
 
 SwiperCore.use([Navigation]);
 
 interface Product {
   id: number;
+  image: string;
+  heading: string;
   name: string;
   price: number;
   rating: number;
-  image: string;
+  totalRating: number;
 }
 
 interface ProductSliderProps {
@@ -20,12 +24,15 @@ interface ProductSliderProps {
 }
 
 const ProductSlider: React.FC<ProductSliderProps> = ({ products }) => {
-  console.log(products);
   const [slidesPerView, setSlidesPerView] = useState(4);
+  const starGradient =
+    'bg-gradient-to-l from-yellow-700 via-yellow-400 to-orange-700';
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 640) {
+      if (window.innerWidth <= 400) {
+        setSlidesPerView(1);
+      } else if (window.innerWidth <= 1024) {
         setSlidesPerView(2);
       } else {
         setSlidesPerView(4);
@@ -44,29 +51,50 @@ const ProductSlider: React.FC<ProductSliderProps> = ({ products }) => {
     <Swiper
       spaceBetween={10}
       slidesPerView={slidesPerView}
-      navigation
       loop
       loopedSlides={products.length}
-      className='flex mt-4'
+      className='flex top-[250px]'
+      modules={[Navigation]}
+      navigation={{
+        prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-button-next',
+      }}
     >
+      <Image
+        src='./previousArrow.svg'
+        width={64}
+        height={64}
+        alt='backward Arrow'
+        className='swiper-button-prev h-10'
+      />
+      <Image
+        src='./nextArrow.svg'
+        width={64}
+        height={64}
+        alt='forward Arrow'
+        className='swiper-button-next'
+      />
       {products.map((product) => (
         <SwiperSlide key={product.id}>
-          <div className='bg-white flex flex-col p-4 border border-red-500 mx-6 sm:mx-2 md:mx-6'>
-            <div className='relative w-full mb-2 rounded-md'>
+          <div
+            className={`${styles.linear_gradient_border_yellow} bg-white min-w-[180px] flex flex-col p-4 mx-2 lg:mx-6`}
+          >
+            <div className='relative w-full mb-2 rounded-md flex justify-center'>
               <Image
                 src={product.image}
-                alt={product.name}
+                alt={product.heading}
                 height={100}
                 width={100}
                 className='rounded-md'
               />
             </div>
 
-            <h2 className='text-lg font-semibold'>{product.name}</h2>
-            <p className='text-gray-500'>Price: ${product.price}</p>
-            <div className='flex items-center mt-2'>
-              <span className='text-yellow-500'>Rating:</span>
-              <span className='ml-1'>{product.rating}</span>
+            <h2 className='text-lg font-semibold'>{product.heading}</h2>
+            <p className='text-gray-500'>{product.name}</p>
+            <p className='text-black font-semibold'>£{product.price}</p>
+            <div className='flex items-center mt-2 text-sm md:text-xl'>
+              <StarRating rating={product.rating} starColor={starGradient} />
+              <span>&#40;{product.totalRating} &#41;</span>
             </div>
           </div>
         </SwiperSlide>

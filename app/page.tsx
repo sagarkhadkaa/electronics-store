@@ -7,61 +7,72 @@ import ProductSlider from './components/ProductSlider';
 const products = [
   {
     id: 1,
-    name: 'Laptop 1',
+    heading: 'Laptop 1',
+    name: 'MacBook Pro 15-inch',
     image: '/alienware1.png',
     price: 999,
     rating: 4.5,
+    totalRating: 15,
   },
   {
     id: 2,
-    name: 'Laptop 2',
+    heading: 'Laptop 2',
+    name: 'MacBook Pro 15-inch',
     image: '/alienware1.png',
     price: 1499,
     rating: 4.8,
+    totalRating: 15,
   },
   {
     id: 3,
-    name: 'Laptop 3',
+    heading: 'Laptop 3',
+    name: 'MacBook Pro 15-inch',
     image: '/alienware1.png',
     price: 9994,
     rating: 4.5,
+    totalRating: 15,
   },
   {
     id: 4,
-    name: 'Laptop 4',
+    heading: 'Laptop 4',
+    name: 'MacBook Pro 15-inch',
     image: '/alienware1.png',
     price: 14991,
     rating: 4.8,
+    totalRating: 15,
   },
   {
     id: 5,
-    name: 'Laptop 5',
+    heading: 'Laptop 5',
+    name: 'MacBook Pro 15-inch',
     image: '/alienware1.png',
     price: 9996,
     rating: 4.5,
+    totalRating: 15,
   },
   {
     id: 6,
-    name: 'Laptop 6',
+    heading: 'Laptop 6',
+    name: 'MacBook Pro 15-inch',
     image: '/alienware1.png',
     price: 1499,
     rating: 4.8,
+    totalRating: 15,
   },
-  // Add more products as needed
 ];
 
 export default function Home() {
   return (
     <div className='bg-deepPurple flex flex-col items-center '>
       <NavBar />
-      <div className='relative flex items-center justify-center bg-black'>
+      <div className='relative flex flex-col items-center justify-center bg-black'>
         <Image
           src={electronic_circuit_bord}
           width={1920}
           height={594}
           alt='electronic_circuit_borad'
           style={{
-            minHeight: '35vh',
+            minHeight: '60vh',
             width: '100vw',
             objectFit: 'cover',
             opacity: '0.61',
@@ -98,7 +109,7 @@ export default function Home() {
                   view all products
                 </div>
                 <Image
-                  src='./forwardArrow.svg'
+                  src='./nextArrow.svg'
                   width={24}
                   height={24}
                   alt='forward Arrow'
@@ -107,9 +118,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
-      <div className='container mx-auto mt-6'>
-        <ProductSlider products={products} />
+        <div className='absolute container mx-auto'>
+          <ProductSlider products={products} />
+        </div>
       </div>
     </div>
   );
