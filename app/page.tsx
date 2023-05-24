@@ -1,75 +1,59 @@
+'use client';
 import Image from 'next/image';
 import NavBar from './components/NavBar';
 import styles from './styles/MyComponent.module.css';
 import electronic_circuit_bord from '../public/electronic_circuit_bord.png';
 import ProductSlider from './components/ProductSlider';
 import ProductCard from './components/ProductCart';
-import Footer from './components/Footer';
+import { useEffect, useState } from 'react';
 
-const products = [
-  {
-    id: 1,
-    heading: 'Laptop 1',
-    name: 'MacBook Pro 15-inch',
-    image: '/alienware1.png',
-    price: 999,
-    rating: 4.5,
-    totalRating: 15,
-  },
-  {
-    id: 2,
-    heading: 'Laptop 2',
-    name: 'MacBook Pro 15-inch',
-    image: '/alienware1.png',
-    price: 1499,
-    rating: 4.8,
-    totalRating: 15,
-  },
-  {
-    id: 3,
-    heading: 'Laptop 3',
-    name: 'MacBook Pro 15-inch',
-    image: '/alienware1.png',
-    price: 9994,
-    rating: 4.5,
-    totalRating: 15,
-  },
-  {
-    id: 4,
-    heading: 'Laptop 4',
-    name: 'MacBook Pro 15-inch',
-    image: '/alienware1.png',
-    price: 14991,
-    rating: 4.8,
-    totalRating: 15,
-  },
-  {
-    id: 5,
-    heading: 'Laptop 5',
-    name: 'MacBook Pro 15-inch',
-    image: '/alienware1.png',
-    price: 9996,
-    rating: 4.5,
-    totalRating: 15,
-  },
-  {
-    id: 6,
-    heading: 'Laptop 6',
-    name: 'MacBook Pro 15-inch',
-    image: '/alienware1.png',
-    price: 1499,
-    rating: 4.8,
-    totalRating: 15,
-  },
-];
+type Product = {
+  id: number;
+  heading: string;
+  name: string;
+  image: string;
+  price: number;
+  rating: number;
+  totalRating: number;
+};
 
 export default function Home() {
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('https://dummyjson.com/products');
+        const data = await response.json();
+        console.log('data', data);
+
+        const selectedProducts = data.products.slice(0, 12).map((item: any) => {
+          return {
+            id: item.id,
+            heading: item.category,
+            name: item.title,
+            image: item.thumbnail,
+            price: item.price,
+            rating: item.rating,
+            totalRating: item.stock,
+          };
+        });
+
+        setProducts(selectedProducts);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  console.log(products);
   const handleViewButtonClick = () => {
     // Handle the view button click event
   };
   return (
     <div className='bg-deepPurple flex flex-col items-center '>
-      <NavBar />
       {/* Logo Electonics & featured products  */}
       <div className='relative flex flex-col items-center justify-center bg-black'>
         <Image
@@ -179,8 +163,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 }

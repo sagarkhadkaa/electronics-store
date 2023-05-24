@@ -61,34 +61,30 @@ function NavBar() {
                     selectedButton === 1 ? styles.box : ''
                   } text-xl text-white text-center md:px-6 md:mx-4 my-6 `}
                 >
-                  {/* <Link href='' onClick={handleClick}> */}
                   <button onClick={() => handleClick(1)}>
                     <div
                       className={`${
                         selectedButton === 1 ? styles.purple_gradient_text : ''
                       } font-bold `}
                     >
-                      Home
+                      <Link href='/'>Home</Link>
                     </div>
                   </button>
-                  {/* </Link> */}
                 </li>
                 <li
                   className={`${
                     selectedButton === 2 ? styles.box : ''
                   } text-xl text-white md:px-6 text-center`}
                 >
-                  {/* <Link href='' onClick={() => handleClick(2)}> */}
                   <button onClick={() => handleClick(2)}>
                     <div
                       className={`${
                         selectedButton === 2 ? styles.purple_gradient_text : ''
                       }  font-bold `}
                     >
-                      Products
+                      <Link href='/products'>Products</Link>
                     </div>
                   </button>
-                  {/* </Link> */}
                 </li>
               </ul>
             </div>

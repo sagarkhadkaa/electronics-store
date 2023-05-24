@@ -9,15 +9,15 @@ import StarRating from './StarRating';
 
 SwiperCore.use([Navigation]);
 
-interface Product {
+type Product = {
   id: number;
-  image: string;
   heading: string;
   name: string;
+  image: string;
   price: number;
   rating: number;
   totalRating: number;
-}
+};
 
 interface ProductSliderProps {
   products: Product[];
@@ -85,7 +85,7 @@ const ProductSlider: React.FC<ProductSliderProps> = ({ products }) => {
                 alt={product.heading}
                 height={100}
                 width={100}
-                className='rounded-md'
+                className='rounded-md h-[100px] '
               />
             </div>
 
