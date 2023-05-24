@@ -65,7 +65,7 @@ function NavBar() {
                   <button onClick={() => handleClick(1)}>
                     <div
                       className={`${
-                        selectedButton === 1 ? styles.gradient_text : ''
+                        selectedButton === 1 ? styles.purple_gradient_text : ''
                       } font-bold `}
                     >
                       Home
@@ -82,7 +82,7 @@ function NavBar() {
                   <button onClick={() => handleClick(2)}>
                     <div
                       className={`${
-                        selectedButton === 2 ? styles.gradient_text : ''
+                        selectedButton === 2 ? styles.purple_gradient_text : ''
                       }  font-bold `}
                     >
                       Products

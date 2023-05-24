@@ -3,6 +3,7 @@ import NavBar from './components/NavBar';
 import styles from './styles/MyComponent.module.css';
 import electronic_circuit_bord from '../public/electronic_circuit_bord.png';
 import ProductSlider from './components/ProductSlider';
+import ProductCard from './components/ProductCart';
 
 const products = [
   {
@@ -62,9 +63,13 @@ const products = [
 ];
 
 export default function Home() {
+  const handleViewButtonClick = () => {
+    // Handle the view button click event
+  };
   return (
     <div className='bg-deepPurple flex flex-col items-center '>
       <NavBar />
+      {/* Logo Electonics & featured products  */}
       <div className='relative flex flex-col items-center justify-center bg-black'>
         <Image
           src={electronic_circuit_bord}
@@ -120,6 +125,57 @@ export default function Home() {
         </div>
         <div className='absolute container mx-auto'>
           <ProductSlider products={products} />
+        </div>
+      </div>
+
+      {/* Products section  */}
+      <div>
+        <div
+          className={`z-20 my-[180px] font-routhem font-normal text-fuchsia text-center text-base sm:text-3xl lg:text-6xl`}
+        >
+          Products
+          <div className='mt-20 flex flex-wrap justify-center lg:px-[100px]'>
+            <ProductCard
+              image='/alienware1.png'
+              title='Headphone-128K'
+              //   onButtonClick={handleViewButtonClick}
+            />
+            <ProductCard
+              image='/alienware1.png'
+              title='Headphone-128K'
+              //   onButtonClick={handleViewButtonClick}
+            />
+            <ProductCard
+              image='/alienware1.png'
+              title='Headphone-128K'
+              //   onButtonClick={handleViewButtonClick}
+            />
+            <ProductCard
+              image='/alienware1.png'
+              title='Headphone-128K'
+              //   onButtonClick={handleViewButtonClick}
+            />
+            <ProductCard
+              image='/alienware1.png'
+              title='Headphone-128K'
+              //   onButtonClick={handleViewButtonClick}
+            />
+            <ProductCard
+              image='/alienware1.png'
+              title='Headphone-128K'
+              //   onButtonClick={handleViewButtonClick}
+            />
+            <ProductCard
+              image='/alienware1.png'
+              title='Headphone-128K'
+              //   onButtonClick={handleViewButtonClick}
+            />
+            <ProductCard
+              image='/alienware1.png'
+              title='Headphone-128K'
+              //   onButtonClick={handleViewButtonClick}
+            />
+          </div>
         </div>
       </div>
     </div>

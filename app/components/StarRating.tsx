@@ -19,7 +19,7 @@ const StarRating: React.FC<StarRatingProps> = ({ rating, starColor }) => {
       stars.push(
         <StarIcon
           key={i}
-          className={`${styles.star_gradient} text-sm md:text-xl`}
+          className={`${styles.yellow_gradient_text} text-sm md:text-xl`}
         />
       );
     }
@@ -28,7 +28,7 @@ const StarRating: React.FC<StarRatingProps> = ({ rating, starColor }) => {
       stars.push(
         <StarHalfIcon
           key={wholeStars + 1}
-          className={`${styles.star_gradient} text-sm md:text-xl`}
+          className={`${styles.yellow_gradient_text} text-sm md:text-xl`}
         />
       );
     }
@@ -39,7 +39,7 @@ const StarRating: React.FC<StarRatingProps> = ({ rating, starColor }) => {
       stars.push(
         <StarBorderIcon
           key={wholeStars + 1 + i}
-          className={`${styles.star_gradient} text-sm md:text-xl`}
+          className={`${styles.yellow_gradient_text} text-sm md:text-xl`}
         />
       );
     }

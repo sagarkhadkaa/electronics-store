@@ -31,7 +31,7 @@
   border: 4px solid transparent;
 }
 
-.gradient_text {
+.purple_gradient_text {
   background: linear-gradient(
     90deg,
     #920aa9 2%,
@@ -48,7 +48,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-.star_gradient {
+.yellow_gradient_text {
   background: linear-gradient(
     90deg,
     #a8620a 2%,
