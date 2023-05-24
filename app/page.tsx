@@ -4,6 +4,7 @@ import styles from './styles/MyComponent.module.css';
 import electronic_circuit_bord from '../public/electronic_circuit_bord.png';
 import ProductSlider from './components/ProductSlider';
 import ProductCard from './components/ProductCart';
+import Footer from './components/Footer';
 
 const products = [
   {
@@ -178,6 +179,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }
