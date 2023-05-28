@@ -86,6 +86,7 @@ export default function Home() {
               className={`${styles.linear_gradient_yellow} w-1/6 md:w-1/4 ml-2`}
             />
           </div>
+
           {/* view all products */}
           <div className='flex flex-row justify-center mt-6 '>
             <div
@@ -120,43 +121,7 @@ export default function Home() {
           Products
           <div className='mt-20 flex flex-wrap justify-center lg:px-[100px]'>
             <ProductCard
-              image='/alienware1.png'
-              title='Headphone-128K'
-              //   onButtonClick={handleViewButtonClick}
-            />
-            <ProductCard
-              image='/alienware1.png'
-              title='Headphone-128K'
-              //   onButtonClick={handleViewButtonClick}
-            />
-            <ProductCard
-              image='/alienware1.png'
-              title='Headphone-128K'
-              //   onButtonClick={handleViewButtonClick}
-            />
-            <ProductCard
-              image='/alienware1.png'
-              title='Headphone-128K'
-              //   onButtonClick={handleViewButtonClick}
-            />
-            <ProductCard
-              image='/alienware1.png'
-              title='Headphone-128K'
-              //   onButtonClick={handleViewButtonClick}
-            />
-            <ProductCard
-              image='/alienware1.png'
-              title='Headphone-128K'
-              //   onButtonClick={handleViewButtonClick}
-            />
-            <ProductCard
-              image='/alienware1.png'
-              title='Headphone-128K'
-              //   onButtonClick={handleViewButtonClick}
-            />
-            <ProductCard
-              image='/alienware1.png'
-              title='Headphone-128K'
+              products={products}
               //   onButtonClick={handleViewButtonClick}
             />
           </div>

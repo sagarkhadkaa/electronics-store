@@ -85,7 +85,7 @@ const ProductSlider: React.FC<ProductSliderProps> = ({ products }) => {
                 alt={product.heading}
                 height={100}
                 width={100}
-                className='rounded-md h-[100px] '
+                className='rounded-md h-[100px]'
               />
             </div>
 

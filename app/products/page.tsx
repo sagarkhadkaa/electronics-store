@@ -1,66 +1,49 @@
+'use client';
 import Image from 'next/image';
 import styles from '../styles/MyComponent.module.css';
 import electronic_circuit_bord from '../../public/electronic_circuit_bord.png';
 import ProductCard from '../components/ProductCart';
+import { useEffect, useState } from 'react';
 
-const products = [
-  {
-    id: 1,
-    heading: 'Laptop 1',
-    name: 'MacBook Pro 15-inch',
-    image: '/alienware1.png',
-    price: 999,
-    rating: 4.5,
-    totalRating: 15,
-  },
-  {
-    id: 2,
-    heading: 'Laptop 2',
-    name: 'MacBook Pro 15-inch',
-    image: '/alienware1.png',
-    price: 1499,
-    rating: 4.8,
-    totalRating: 15,
-  },
-  {
-    id: 3,
-    heading: 'Laptop 3',
-    name: 'MacBook Pro 15-inch',
-    image: '/alienware1.png',
-    price: 9994,
-    rating: 4.5,
-    totalRating: 15,
-  },
-  {
-    id: 4,
-    heading: 'Laptop 4',
-    name: 'MacBook Pro 15-inch',
-    image: '/alienware1.png',
-    price: 14991,
-    rating: 4.8,
-    totalRating: 15,
-  },
-  {
-    id: 5,
-    heading: 'Laptop 5',
-    name: 'MacBook Pro 15-inch',
-    image: '/alienware1.png',
-    price: 9996,
-    rating: 4.5,
-    totalRating: 15,
-  },
-  {
-    id: 6,
-    heading: 'Laptop 6',
-    name: 'MacBook Pro 15-inch',
-    image: '/alienware1.png',
-    price: 1499,
-    rating: 4.8,
-    totalRating: 15,
-  },
-];
+type Product = {
+  id: number;
+  heading: string;
+  name: string;
+  image: string;
+  price: number;
+  rating: number;
+  totalRating: number;
+};
 
 export default function Products() {
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('https://dummyjson.com/products');
+        const data = await response.json();
+
+        const selectedProducts = data.products.slice(0, 16).map((item: any) => {
+          return {
+            id: item.id,
+            heading: item.category,
+            name: item.title,
+            image: item.thumbnail,
+            price: item.price,
+            rating: item.rating,
+            totalRating: item.stock,
+          };
+        });
+
+        setProducts(selectedProducts);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
   const handleViewButtonClick = () => {
     // Handle the view button click event
   };
@@ -94,43 +77,7 @@ export default function Products() {
         <div className={`z-20 mb-[180px] `}>
           <div className='mt-20 flex flex-wrap justify-center lg:px-[100px]'>
             <ProductCard
-              image='/alienware1.png'
-              title='Headphone-128K'
-              //   onButtonClick={handleViewButtonClick}
-            />
-            <ProductCard
-              image='/alienware1.png'
-              title='Headphone-128K'
-              //   onButtonClick={handleViewButtonClick}
-            />
-            <ProductCard
-              image='/alienware1.png'
-              title='Headphone-128K'
-              //   onButtonClick={handleViewButtonClick}
-            />
-            <ProductCard
-              image='/alienware1.png'
-              title='Headphone-128K'
-              //   onButtonClick={handleViewButtonClick}
-            />
-            <ProductCard
-              image='/alienware1.png'
-              title='Headphone-128K'
-              //   onButtonClick={handleViewButtonClick}
-            />
-            <ProductCard
-              image='/alienware1.png'
-              title='Headphone-128K'
-              //   onButtonClick={handleViewButtonClick}
-            />
-            <ProductCard
-              image='/alienware1.png'
-              title='Headphone-128K'
-              //   onButtonClick={handleViewButtonClick}
-            />
-            <ProductCard
-              image='/alienware1.png'
-              title='Headphone-128K'
+              products={products}
               //   onButtonClick={handleViewButtonClick}
             />
           </div>
