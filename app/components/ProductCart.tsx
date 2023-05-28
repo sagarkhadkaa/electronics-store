@@ -18,10 +18,14 @@ const ProductCard: React.FC<ProductProps> = ({
   products,
   //   onButtonClick,
 }) => {
-  const [liked, setLiked] = useState(false);
+  const [likedProducts, setLikedProducts] = useState<number[]>([]);
 
-  const handleLikeToggle = () => {
-    setLiked(!liked);
+  const handleLikeToggle = (productId: number) => {
+    if (likedProducts.includes(productId)) {
+      setLikedProducts(likedProducts.filter((id) => id !== productId));
+    } else {
+      setLikedProducts([...likedProducts, productId]);
+    }
   };
 
   return (
@@ -38,11 +42,11 @@ const ProductCard: React.FC<ProductProps> = ({
           </div>
           <button
             className={`absolute top-2 right-2 text-2xl focus:outline-none ${
-              liked ? 'text-red-500' : 'text-white'
+              likedProducts.includes(product.id) ? 'text-red-500' : 'text-white'
             }`}
-            onClick={handleLikeToggle}
+            onClick={() => handleLikeToggle(product.id)}
           >
-            {liked ? '❤️' : '🤍'}
+            {likedProducts.includes(product.id) ? '❤️' : '🤍'}
           </button>
           <div className='relative top-5'>
             <Image
