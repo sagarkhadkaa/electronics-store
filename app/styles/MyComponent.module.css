@@ -104,3 +104,10 @@
 .swiper-button-next {
   display: none;
 }
+
+.rating {
+  font-size: '0.875rem';
+  @media (min-width: 640px) : {
+    fontsize: '1.25rem';
+  }
+}

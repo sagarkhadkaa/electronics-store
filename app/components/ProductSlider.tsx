@@ -90,11 +90,15 @@ const ProductSlider: React.FC<ProductSliderProps> = ({ products }) => {
             </div>
 
             <h2 className='text-lg font-semibold'>{product.heading}</h2>
-            <p className='text-gray-500'>{product.name}</p>
+            <p className='text-gray-500 text-sm xl:text-xl min-h-[40px]'>
+              {product.name}
+            </p>
             <p className='text-black font-semibold'>£{product.price}</p>
             <div className='flex items-center mt-2 text-sm md:text-xl'>
               <StarRating rating={product.rating} starColor={starGradient} />
-              <span>&#40;{product.totalRating} &#41;</span>
+              <span className='text-xs md:text-sm'>
+                &#40;{product.totalRating} &#41;
+              </span>
             </div>
           </div>
         </SwiperSlide>

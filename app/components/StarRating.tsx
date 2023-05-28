@@ -16,20 +16,12 @@ const StarRating: React.FC<StarRatingProps> = ({ rating, starColor }) => {
     const hasHalfStar = rating - wholeStars >= 0.5;
 
     for (let i = 1; i <= wholeStars; i++) {
-      stars.push(
-        <StarIcon
-          key={i}
-          className={`${styles.yellow_gradient_text} text-sm md:text-xl`}
-        />
-      );
+      stars.push(<StarIcon key={i} className={`${styles.rating}`} />);
     }
 
     if (hasHalfStar) {
       stars.push(
-        <StarHalfIcon
-          key={wholeStars + 1}
-          className={`${styles.yellow_gradient_text} text-sm md:text-xl`}
-        />
+        <StarHalfIcon key={wholeStars + 1} className={`${styles.rating}`} />
       );
     }
 
@@ -39,7 +31,7 @@ const StarRating: React.FC<StarRatingProps> = ({ rating, starColor }) => {
       stars.push(
         <StarBorderIcon
           key={wholeStars + 1 + i}
-          className={`${styles.yellow_gradient_text} text-sm md:text-xl`}
+          className={`${styles.rating}`}
         />
       );
     }

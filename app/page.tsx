@@ -1,6 +1,5 @@
 'use client';
 import Image from 'next/image';
-import NavBar from './components/NavBar';
 import styles from './styles/MyComponent.module.css';
 import electronic_circuit_bord from '../public/electronic_circuit_bord.png';
 import ProductSlider from './components/ProductSlider';
